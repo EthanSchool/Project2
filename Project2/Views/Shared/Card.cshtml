@@ -1,0 +1,15 @@
+﻿@model Card
+
+<div class="col-md-6">
+    <div class="media">
+        <div class="media-left">
+            <a style="color: @Model.IconColor; font-size: 3em;">
+                <i class="fas @Model.Icon" vertical-align="0em"></i>
+            </a>
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">@Model.Title</h4>
+            @Model.Info
+        </div>
+    </div>
+</div>

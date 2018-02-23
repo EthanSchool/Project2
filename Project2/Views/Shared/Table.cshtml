@@ -1,0 +1,19 @@
+﻿@model TableData
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+    <tr>
+        @foreach(string item in Model.Labels) {
+            <th>@item</th>
+        }
+    </tr>
+    </thead>
+    <tbody>
+    @foreach(string[] item in Model.Values) {
+        <tr>
+            @foreach(string item2 in item) {
+                <td>@item2</td>
+            }
+        </tr>
+    }
+    </tbody>
+</table>

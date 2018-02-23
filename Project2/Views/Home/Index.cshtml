@@ -1,0 +1,49 @@
+﻿@model CustomViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a href="#winners" role="tab" data-toggle="tab">List of Winners</a>
+    </li>
+    <li>
+        <a href="#attended" role="tab" data-toggle="tab">Top 5 attended</a>
+    </li>
+    <li>
+        <a href="#states" role="tab" data-toggle="tab">States that hosted the most superbowls</a>
+    </li>
+    <li>
+        <a href="#mvp" role="tab" data-toggle="tab">Players that won MVP more than twice</a>
+    </li>
+    <li>
+        <a href="#other" role="tab" data-toggle="tab">Other</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane active" id="winners">
+        @Html.Partial("Table", Model.SBWinners, ViewData)
+    </div>
+    <div class="tab-pane" id="attended">
+        @Html.Partial("Table", Model.Top5Attended, ViewData)
+    </div>
+    <div class="tab-pane" id="states">
+        @Html.Partial("Table", Model.StatesHeldMost, ViewData)
+    </div>
+    <div class="tab-pane" id="mvp">
+        @Html.Partial("Table", Model.MostMVPS, ViewData)
+    </div>
+    <div class="tab-pane" id="other">
+        <div class="container">
+            <div class="row">
+                @Html.Partial("Card", new Card("Average attendance", Model.Others.AverageAttendance, "fa-users"), ViewData)
+                @Html.Partial("Card", new Card("Coach who lost most", Model.Others.CoachLostMost, "fa-user-secret"), ViewData)
+                @Html.Partial("Card", new Card("Coach who won most", Model.Others.CoachWonMost, "fa-user-secret", ""), ViewData)
+                @Html.Partial("Card", new Card("Team with most wins", Model.Others.TeamWonMost, "fa-flag", "blue"), ViewData)
+                @Html.Partial("Card", new Card("Team with most losses", Model.Others.TeamLostMost, "fa-flag", "red"), ViewData)
+                @Html.Partial("Card", new Card("Superbowl with greatest point difference", Model.Others.SBWithGreatestPointDelta, "fa-football-ball"), ViewData)
+            </div>
+        </div>
+    </div>
+</div>
